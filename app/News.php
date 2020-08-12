@@ -4,7 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
-{
-    //
-}
+/**
+ * Class News
+ *
+ * @package App
+ * @author Benjamin Gil Flores
+ */
+class News extends Model { }
