@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ContentController
@@ -22,8 +24,14 @@ class ContentController extends Controller
      */
     public function newsAction($slug)
     {
+        $slug = "/$slug";
+
+        $note = DB::select("select * from news where url_normalized = :slug", array('slug' => $slug));
+
+        if (empty($note)) throw new NotFoundHttpException();
+
         return view('news-detail', array(
-            'slug' => $slug
+            'note' => $note[0],
         ));
     }
 

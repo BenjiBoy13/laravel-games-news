@@ -7,5 +7,7 @@
         <main class="main-wrapper">
             @yield('content')
         </main>
+
+        <script type="application/javascript" src="{{ asset('/dist/bundle.js') }}"></script>
     </body>
 </html>

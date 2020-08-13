@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 /**
@@ -21,6 +22,10 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return view('home');
+        $news = DB::select("select * from news");
+
+        return view('home', array(
+            'news' => $news
+        ));
     }
 }
