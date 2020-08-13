@@ -6,24 +6,30 @@
     @include('modules.hero', array(
         'title' => 'Games News',
         'info' => 'The best gamer news',
-        'color' => '#68b0ab'
+        'color' => '#b52b65'
     ))
 
     <div class="container">
-        @foreach($news as $note)
-            <div class="note-wrapper" data-url="{{ $note->url_normalized }}">
-                <div class="note-basic-info">
-                    <div class="note-title">
-                        <h2> {{ $note->title }} </h2>
-                    </div>
-                    <div class="note-summary">
-                        <p> {{ $note->summary }} </p>
-                    </div>
-                    <div class="note=date">
-                        <span> {{ $note->created_at }} </span>
-                    </div>
-                </div>
+        @if(empty($news))
+            <div class="note-message">
+                <p class="text-center"> Por el momento no tenemos notas </p>
             </div>
-        @endforeach
+        @else
+            <div class="card-columns">
+                @foreach($news as $note)
+                    <div class="note-wrapper" data-url="{{ $note->url_normalized }}">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2> {{ $note->title }} </h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text"> {{ $note->summary }} </p>
+                                <span> {{ $note->created_at }} </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 @stop

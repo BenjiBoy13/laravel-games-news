@@ -1,0 +1,12 @@
+@mixin two-column {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin one-column {
+    @media screen and (max-width: 648px) {
+        @content;
+    }
+}
+

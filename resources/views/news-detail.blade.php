@@ -6,14 +6,16 @@
     @include('modules.hero', array(
         'title' => $note->title,
         'info' => 'Creation date - ' . $note->created_at,
-        'color' => '#fadcac'
+        'color' => '#a35d6a'
     ))
 
     <div class="container">
         <div class="note-detail-wrapper">
             <div class="summary-wrapper">
                 <div class="summary">
-                    <p> {{ $note->summary }} </p>
+                    <blockquote class="blockquote">
+                        <p class="mr-5 ml-5"> {{ $note->summary }} </p>
+                    </blockquote>
                 </div>
                 <hr />
             </div>

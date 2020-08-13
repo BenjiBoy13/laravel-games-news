@@ -1,0 +1,15 @@
+header {
+    background-color: transparent;
+
+    nav {
+        .form-inline {
+            justify-content: flex-end;
+            width: 80%;
+
+            input {
+                width: 70%;
+                margin: 0 5px;
+            }
+        }
+    }
+}

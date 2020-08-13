@@ -94,7 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.min */ \"./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log(\"Hello cruel world\");\n\n//# sourceURL=webpack:///./js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.min */ \"./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _modules_homeModule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/homeModule */ \"./js/modules/homeModule.js\");\n\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  Object(_modules_homeModule__WEBPACK_IMPORTED_MODULE_2__[\"initHome\"])();\n});\n\n//# sourceURL=webpack:///./js/main.js?");
+
+/***/ }),
+
+/***/ "./js/modules/homeModule.js":
+/*!**********************************!*\
+  !*** ./js/modules/homeModule.js ***!
+  \**********************************/
+/*! exports provided: initHome */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initHome\", function() { return initHome; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction initHome() {\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".note-wrapper\").on('click', function (event) {\n    var element = event.currentTarget;\n    var noteUrl = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).attr('data-url');\n    location.href = \"http://\" + document.domain + \":8000\" + noteUrl;\n  });\n}\n\n//# sourceURL=webpack:///./js/modules/homeModule.js?");
 
 /***/ }),
 

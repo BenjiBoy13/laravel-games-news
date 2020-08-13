@@ -8,6 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -36,10 +37,29 @@ class ContentController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return Application|Factory|View
      */
-    public function searchAction()
+    public function searchAction(Request $request)
     {
-        return view('search');
+        $text = $request->query->get('text');
+        $textToSearch = "%" . $text . "%";
+
+        $news = DB::select(
+            "select * from news where title like :text",
+            array('text' => $textToSearch)
+        );
+
+        usort($news, function($a, $b) {
+            $t1 = strtotime($a->created_at);
+            $t2 = strtotime($b->created_at);
+            return $t2 - $t1;
+        });
+
+        return view('search', array(
+            'news' => $news,
+            'text' => $text,
+            'count' => count($news)
+        ));
     }
 }

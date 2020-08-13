@@ -24,6 +24,14 @@ class HomeController extends Controller
     {
         $news = DB::select("select * from news");
 
+        usort($news, function($a, $b) {
+            $t1 = strtotime($a->created_at);
+            $t2 = strtotime($b->created_at);
+            return $t2 - $t1;
+        });
+
+        array_splice($news, 10);
+
         return view('home', array(
             'news' => $news
         ));
